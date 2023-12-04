@@ -31,7 +31,7 @@ function AboutUs() {
         <a>
           <button
             type="button"
-            className="relative w-full max-w-3xl px-10 py-4 text-white bg-green-600 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 rounded-full mb-8 mt-4 ml-[125px]"
+            className="relative w-full max-w-3xl px-10 py-4 text-white bg-green-600 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 rounded-full mb-8 mt-4 ml-[25px]"
           >
             <img
               src="/whatsapp.png"
