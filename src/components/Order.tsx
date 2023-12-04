@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import useGetUser from "@/hooks/useGetUser";
 import Link from "next/link";
@@ -14,7 +14,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/app/components/ui/table"
+} from "@/app/components/ui/table";
 import { Order } from "../../index.types";
 
 function Order() {
@@ -25,14 +25,14 @@ function Order() {
 
   useEffect(() => {
     userAuthenticate();
-  }, []);
+  }, [userAuthenticate]);
 
   useEffect(() => {
     if (!loading && user) {
       setFetchStatus(true);
 
       fetch(`/api/order?pageSize=100&userId=${user.id}`, {
-        method: 'GET'
+        method: "GET",
       })
         .then((res) => res.json())
         .then((res) => {
@@ -45,23 +45,23 @@ function Order() {
           toast({
             title: res.status,
             description: res.message,
-            variant: 'destructive'
+            variant: "destructive",
           });
         })
         .catch((error) => {
           toast({
-            title: 'Error',
+            title: "Error",
             description: (error as Error).message,
-            variant: 'destructive'
+            variant: "destructive",
           });
         })
         .finally(() => {
           setFetchStatus(false);
-        })
+        });
     }
-  }, [user, loading]);
+  }, [user, loading, toast]);
 
-  if (loading || fetchStatus) return <FlashScreen />
+  if (loading || fetchStatus) return <FlashScreen />;
 
   return (
     <section className="mt-8">
@@ -72,7 +72,10 @@ function Order() {
       {!fetchStatus && data !== null && (
         <div className="py-10">
           <div className="text-right">
-            <Link href={"/isipesanan"} className="bg-blue-700 rounded-full text-white px-8 py-2">
+            <Link
+              href={"/isipesanan"}
+              className="bg-blue-700 rounded-full text-white px-8 py-2"
+            >
               Buat Pesanan
             </Link>
           </div>
@@ -105,7 +108,10 @@ function Order() {
 
       {!fetchStatus && data === null && (
         <div className="text-center py-10 min-h-[350px] flex items-center justify-center">
-          <Link href={"/isipesanan"} className="bg-blue-700 rounded-full text-white px-8 py-2">
+          <Link
+            href={"/isipesanan"}
+            className="bg-blue-700 rounded-full text-white px-8 py-2"
+          >
             Buat Pesanan
           </Link>
         </div>

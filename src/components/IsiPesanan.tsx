@@ -84,7 +84,7 @@ function IsiPesanan() {
 
   useEffect(() => {
     userAuthenticate();
-  }, []);
+  }, [userAuthenticate]);
 
   if (loadingUser) return <FlashScreen />;
 

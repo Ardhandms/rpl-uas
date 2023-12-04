@@ -7,7 +7,7 @@ function Hero() {
     <section className="hero">
       <div className="py-24">
         <h1 className="text-4xl font-semibold leading-relaxed">
-          "Kebersihan itu sebagian dari iman" (HR. Tirmidzi)
+          &ldquo;Kebersihan itu sebagian dari iman&rdquo; (HR. Tirmidzi)
         </h1>
         <p className="my-6 text-gray-500">
           Fun Fact: Mengeringkan sepatu di bawah sinar matahari langsung, akan

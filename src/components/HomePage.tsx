@@ -32,7 +32,12 @@ function HomePage() {
         {/*testimoni*/}
         <div className="grid grid-cols-3 gap-10 mt-[50px]">
           <div className="bg-gray-300 p-4 rounded-lg text-center group hover:bg-white hover:shadow-2xl hover:shadow-black-75 transition-all">
-            <img src="/testimoni/compasretro.jpg" />
+            <Image
+              src="/testimoni/compasretro.jpg"
+              width={750}
+              height={750}
+              alt="Sepatu 2"
+            />
             <h4 className="font-semibold text-xl my-2">
               Compass Retrograde Black & White
             </h4>
@@ -44,7 +49,12 @@ function HomePage() {
             </a>
           </div>
           <div className="bg-gray-300 p-4 rounded-lg text-center group hover:bg-white hover:shadow-2xl hover:shadow-black-75 transition-all">
-            <img src="/testimoni/ventelalowwhite.jpg" />
+            <Image
+              src="/testimoni/ventelalowwhite.jpg"
+              width={750}
+              height={750}
+              alt="Sepatu 2"
+            />
             <h4 className="font-semibold text-xl my-2">Ventela Low White</h4>
             <p className="text-grey-500 text-sm">Deep Cleaning</p>
             <a href="https://www.instagram.com/p/CxqPbtOSxOu/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==">
@@ -54,7 +64,12 @@ function HomePage() {
             </a>
           </div>
           <div className="bg-gray-300 p-4 rounded-lg text-center group hover:bg-white hover:shadow-2xl hover:shadow-black-75 transition-all">
-            <img src="/testimoni/nikedunkpanda.jpg" />
+            <Image
+              src="/testimoni/nikedunkpanda.jpg"
+              width={750}
+              height={750}
+              alt="Sepatu 2"
+            />
             <h4 className="font-semibold text-xl my-2">Nike Dunk Panda</h4>
             <p className="text-grey-500 text-sm">Deep Cleaning</p>
             <a href="https://www.instagram.com/p/CxYXiZxSBEq/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==">
@@ -64,7 +79,12 @@ function HomePage() {
             </a>
           </div>
           <div className="bg-gray-300 p-4 rounded-lg text-center group hover:bg-white hover:shadow-2xl hover:shadow-black-75 transition-all">
-            <img src="/testimoni/70s.jpg" />
+            <Image
+              src="/testimoni/70s.jpg"
+              width={750}
+              height={750}
+              alt="Sepatu 2"
+            />
             <h4 className="font-semibold text-xl my-2">
               Converse Chuck Taylor 70s
             </h4>
@@ -76,7 +96,12 @@ function HomePage() {
             </a>
           </div>
           <div className="bg-gray-300 p-4 rounded-lg text-center group hover:bg-white hover:shadow-2xl hover:shadow-black-75 transition-all">
-            <img src="/testimoni/compasvelo.jpg" />
+            <Image
+              src="/testimoni/compasvelo.jpg"
+              width={750}
+              height={750}
+              alt="Sepatu 2"
+            />
             <h4 className="font-semibold text-xl my-2">Compass Velocity</h4>
             <p className="text-grey-500 text-sm">Deep Cleaning</p>
             <a href="https://www.instagram.com/p/CygeLUASB7S/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==">
@@ -86,7 +111,12 @@ function HomePage() {
             </a>
           </div>
           <div className="bg-gray-300 p-4 rounded-lg text-center group hover:bg-white hover:shadow-2xl hover:shadow-black-75 transition-all">
-            <img src="/testimoni/converseplow.jpg" />
+            <Image
+              src="/testimoni/converseplow.jpg"
+              width={750}
+              height={750}
+              alt="Sepatu 2"
+            />
             <h4 className="font-semibold text-xl my-2">
               Converse Chuck Taylor Low
             </h4>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function AboutUs() {
@@ -33,12 +34,12 @@ function AboutUs() {
             type="button"
             className="relative w-full max-w-3xl px-10 py-4 text-white bg-green-600 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 rounded-full mb-8 mt-4 ml-[25px]"
           >
-            <img
+            <Image
+              width={75}
+              height={75}
               src="/whatsapp.png"
               alt="logo wa"
               style={{
-                width: "70px",
-                height: "auto",
                 position: "absolute",
                 left: "15%",
                 top: "50%",
