@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -16,7 +16,7 @@ function Header() {
           Mr. Cleansz
         </Link>
         <Link href={"/"}>Home</Link>
-        <Link href={"/"}>About</Link>
+        <Link href={"/tentang"}>Tentang</Link>
         <Link href={"#aboutus"}>Contact</Link>
       </nav>
 

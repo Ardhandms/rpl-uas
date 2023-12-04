@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Button } from "@/app/components/ui/button";
 import { useToast } from "@/app/components/ui/use-toast";
@@ -12,22 +12,22 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 const PAYMENTS_METHOD = [
   {
     id: 0,
-    name: 'Dana',
-    image: '/whatsapp.png'
+    name: "Dana",
+    image: "/Danalogo.png",
   },
   {
     id: 1,
-    name: 'Gopay',
-    image: '/googleicon.png'
+    name: "Gopay",
+    image: "/Ovologo.png",
   },
 ];
 
 function IsiPesanan() {
   const [form, setForm] = useState({
-    name: '',
-    shoesType: '',
-    packageType: '',
-    paymentMethodId: -1
+    name: "",
+    shoesType: "",
+    packageType: "",
+    paymentMethodId: -1,
   });
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
@@ -37,9 +37,9 @@ function IsiPesanan() {
   const onSubmit = () => {
     if (form.paymentMethodId === -1) {
       toast({
-        title: 'Metode pembayaran tidak valid!',
-        description: 'Silahkan pilih metode pembayaran yang tersedia.',
-        variant: 'destructive'
+        title: "Metode pembayaran tidak valid!",
+        description: "Silahkan pilih metode pembayaran yang tersedia.",
+        variant: "destructive",
       });
       return;
     }
@@ -48,51 +48,51 @@ function IsiPesanan() {
     const data = {
       ...otherData,
       paymentMethod: PAYMENTS_METHOD[paymentMethodId].name,
-      userId: user!.id
-    }
+      userId: user!.id,
+    };
 
     setLoading(true);
 
-    fetch('/api/order', {
+    fetch("/api/order", {
       body: JSON.stringify(data),
-      method: 'POST'
+      method: "POST",
     })
       .then((res) => res.json())
       .then((res) => {
         if (res.status === 201) {
-          navigate.push('/order');
+          navigate.push("/order");
           return;
         }
 
         toast({
           title: res.status,
           description: res.message,
-          variant: 'destructive'
+          variant: "destructive",
         });
       })
       .catch((error) => {
         toast({
-          title: 'Error',
+          title: "Error",
           description: (error as Error).message,
-          variant: 'destructive'
+          variant: "destructive",
         });
       })
       .finally(() => {
         setLoading(false);
-      })
-  }
+      });
+  };
 
   useEffect(() => {
     userAuthenticate();
   }, []);
 
-  if (loadingUser) return <FlashScreen />
+  if (loadingUser) return <FlashScreen />;
 
   return (
     <section className="px-20 mb-10 text-black">
       <div className="w-full flex flex-col items-center justify-center rounded-2xl p-10 pb-20 mt-28">
         <h1 className="text-[40px] font-semibold leading-[100px] tracking-tigh text-center">
-          Beli Tiket
+          Buat Pesanan
         </h1>
 
         <form
@@ -117,7 +117,9 @@ function IsiPesanan() {
                 className="border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 px-4"
                 placeholder="Type here..."
                 required
-                onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
+                onChange={(e) =>
+                  setForm((prev) => ({ ...prev, name: e.target.value }))
+                }
               />
             </div>
             <div className="relative z-0 w-full group">
@@ -134,7 +136,9 @@ function IsiPesanan() {
                 className="border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 px-4"
                 placeholder="Type here..."
                 required
-                onChange={(e) => setForm((prev) => ({ ...prev, shoesType: e.target.value }))}
+                onChange={(e) =>
+                  setForm((prev) => ({ ...prev, shoesType: e.target.value }))
+                }
               />
             </div>
 
@@ -151,7 +155,12 @@ function IsiPesanan() {
                       defaultValue="standar"
                       name="list-radio"
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                      onChange={(e) => setForm((prev) => ({ ...prev, packageType: e.target.value }))}
+                      onChange={(e) =>
+                        setForm((prev) => ({
+                          ...prev,
+                          packageType: e.target.value,
+                        }))
+                      }
                       required
                     />
                     <label
@@ -170,7 +179,12 @@ function IsiPesanan() {
                       defaultValue="deep"
                       name="list-radio"
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                      onChange={(e) => setForm((prev) => ({ ...prev, packageType: e.target.value }))}
+                      onChange={(e) =>
+                        setForm((prev) => ({
+                          ...prev,
+                          packageType: e.target.value,
+                        }))
+                      }
                       required
                     />
                     <label
@@ -193,10 +207,19 @@ function IsiPesanan() {
                     type="button"
                     key={payment.id}
                     className={`
-                      ${payment.id === form.paymentMethodId ? 'border border-black' : ''}
+                      ${
+                        payment.id === form.paymentMethodId
+                          ? "border border-black"
+                          : ""
+                      }
                       w-max p-2 bg-gray-200 rounded-md
                     `}
-                    onClick={() => setForm((prev) => ({ ...prev, paymentMethodId: payment.id }))}
+                    onClick={() =>
+                      setForm((prev) => ({
+                        ...prev,
+                        paymentMethodId: payment.id,
+                      }))
+                    }
                   >
                     <div className="relative w-[50px] aspect-[3/2] rounded-md overflow-hidden">
                       <Image
@@ -219,7 +242,9 @@ function IsiPesanan() {
                   fontSize={24}
                   className="mx-auto animate-spin"
                 />
-              ) : 'Pesan'}
+              ) : (
+                "Pesan"
+              )}
             </Button>
           </div>
         </form>
