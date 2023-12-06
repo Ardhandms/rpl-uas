@@ -98,6 +98,11 @@ function Order() {
                     <TableCell>{order.paymentMethod}</TableCell>
                     <TableCell>{order.shoesType}</TableCell>
                     <TableCell>{order.packageType}</TableCell>
+                    <TableCell>
+                      <button className="text-red-500 hover:text-red-700">
+                        Delete
+                      </button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
