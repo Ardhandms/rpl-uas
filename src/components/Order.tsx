@@ -16,8 +16,12 @@ import {
   TableRow,
 } from "@/app/components/ui/table";
 import { Order } from "../../index.types";
+import { Button } from "@/app/components/ui/button";
+import { ModalDeleteOrder } from "./ModalDeleteOrder";
 
 function Order() {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [idItemDelete, setIdItemDelete] = useState<null | number>(null);
   const [data, setData] = useState<Order[] | null>(null);
   const [fetchStatus, setFetchStatus] = useState(false);
   const { user, loading, userAuthenticate } = useGetUser();
@@ -37,7 +41,6 @@ function Order() {
         .then((res) => res.json())
         .then((res) => {
           if (res.status === 200) {
-            console.log(res);
             setData(res.data);
             return;
           }
@@ -65,6 +68,21 @@ function Order() {
 
   return (
     <section className="mt-8">
+      <ModalDeleteOrder
+        isOpen={openDeleteModal}
+        onOpenChange={(open) => {
+          setOpenDeleteModal(open);
+          if (!open) setIdItemDelete(null);
+        }}
+        id={idItemDelete}
+        onSuccessDelete={(id) => {
+          setData(prev => {
+            if (!prev) return null;
+            return prev.filter((ticket) => ticket.id !== id);
+          })
+          setOpenDeleteModal(false);
+        }}
+      />
       <h2 className="text-4xl font-semibold leading-relaxed text-center">
         Riwayat Pemesanan
       </h2>
@@ -88,6 +106,7 @@ function Order() {
                   <TableHead>Pembayaran</TableHead>
                   <TableHead>Merk Sepatu</TableHead>
                   <TableHead>Tipe Paket</TableHead>
+                  <TableHead>Aksi</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody className="text-gray-600">
@@ -99,9 +118,15 @@ function Order() {
                     <TableCell>{order.shoesType}</TableCell>
                     <TableCell>{order.packageType}</TableCell>
                     <TableCell>
-                      <button className="text-red-500 hover:text-red-700">
+                      <Button
+                        variant="destructive"
+                        onClick={() => {
+                          setOpenDeleteModal(true);
+                          setIdItemDelete(order.id)
+                        }}
+                      >
                         Delete
-                      </button>
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}
